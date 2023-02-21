@@ -103,6 +103,10 @@ function boxClicked(el) {
             winningArea.map((item) => {
                 boxes[item].style.backgroundColor = winnerIndicator;
             });
+
+            boxes.forEach((item) => {
+                item.removeEventListener("click", boxClicked);
+            });
         } else if (gamesPlace.every((item) => item !== null)) {
             titleText.textContent = `It's a draw!😐`;
         }
